@@ -3,7 +3,8 @@ This page is incomplete. The following readme is a mockup for a Patapon Randomiz
 Download the following two files from the [Releases page in Github](putlinkhere):
 - patapon.yaml
 - patapon.apworld
-Get PPSSPP, the 
+
+Get PPSSPP, the PSP emulator.
 ???
 
 Then, follow the below steps to setup the randomizer:
