@@ -12,11 +12,11 @@ The first thing you need to do is configure the patapon.yaml file. For that, ope
 edit the YAML to fit whatever settings you want to play with:
 - name: Enter your desired slot name here, could be almost anything. {player} or {PLAYER} are replaced with the slot number, while {number} or {NUMBER} will increment once for each duplicate YAML name.
 - goal: Can be All Bosses, Gong, and Gorl, in all bosses you need to beat all bosses and raise them to the boss goal level, in gong mode you need to progress to Gong Vows to Fight and clear the mission, and in gorl mode you need to clear the mission "Servant of Darkness".
-- all_bosses_goal: Can be any number from 1 to 50, default is 4. This is the level all bosses need to be before your game is cleared. This does nothing in other modes.
+- all_bosses_goal: Int, 1-50, default is 4. This is the level all bosses need to be before your game is cleared. This does nothing in other modes.
 - mission_order: Can be Vanilla, Shuffle, Progressive, and Completely Random, Vanilla does not change the mission order, Shuffle missions are in a random order in which you can beat them, Progressive missions are story order missions sent through Archipelago, Completely Random mode are random ordered missions sent through Archipelago.
-- progressive_mission_amount: Can be any number from 0 to 16, represents the percent of filler items that are replaced with progressive mission checks for the progressive mission order mode. This does nothing in other modes.
-- kaching_gather_step: Changes how much total kaching gathered is needed to send out an item. Default is 150.
-- kaching_gather_count: Changes how many kaching steps exist. Default is 40. Setting this 0 disables these checks.
+- progressive_mission_amount: Int, 0-16, represents the percent of filler items that are replaced with progressive mission checks for the progressive mission order mode. This does nothing in other modes.
+- kaching_gather_step: Int, 50-500. Changes how much total kaching gathered is needed to send out an item. Default is 150.
+- kaching_gather_count: Int, 0-80. Changes how many kaching steps exist. Default is 40. Setting this 0 disables these checks.
 - missionsanity: Adds all mission clears to the item pool. This also adds equipment into the loot pool based on one of the best items from that mission.
 - tipsanity: Adds random tips from loading screens as items to the item pool. Adds equipment and materials into the loot pool based on tips.
 - matersanity: Adds first times creating units to the item pool. Adds materials into the loot pool.
@@ -26,14 +26,15 @@ edit the YAML to fit whatever settings you want to play with:
 - randomize_drums: Randomizes the locations of Chaka and Don drums. Vanilla does not randomize, Shuffle moves each one to their own location, Completely Random puts it in the Archipelago item pool. 
 - randomize_boss_maps: Some bosses in Patapon are only found from having their map item in your inventory. Vanilla does not randomize, Shuffles moves them between their respective locations, Completely Random puts them in the Archipelago item pool. 
 - randomize_miracles: Miracles are necessary to complete some missions in the game. Logically, you should be able to obtain some miracles some time before their required missions. Vanilla does not randomize, Shuffles moves them between their respective locations, Completely Random puts them in the Archipelago item pool. 
-- randomize_WEP_totems: Yerp. Vanilla does not randomize, Shuffles moves them between their respective locations, Completely Random puts them in the Archipelago item pool.
+- randomize_WEP_totems: Randomize items from WEP totems. Vanilla does not randomize, Shuffles moves them between their respective locations, Completely Random puts them in the Archipelago item pool.
 - randomize_memories: Randomizes the locations of unit memories for creation at Mater. Vanilla does not randomize, Shuffles moves them between their respective locations, Completely Random puts them in the Archipelago item pool. 
 - randomize_minigames: Randomizes minigame locations. Vanilla does not randomize, Shuffles moves them between their respective locations, Completely Random puts them in the Archipelago item pool. 
-- pakapon_minigame: Can be a number between 0 and 10. Adds checks to the Pan Pakapon minigame, which in turn adds random stones and woods to the item pool.
-- gashapon_minigame: Can be a number between 0 and 10. Adds checks to the Pan Pakapon minigame, which in turn adds random stones and woods to the item pool.
-- kimpon_minigame: Can be a number between 0 and 10. Adds checks to the Pan Pakapon minigame, which in turn adds random stones and woods to the item pool.
-- kampon_minigame: Can be a number between 0 and 10. Adds checks to the Pan Pakapon minigame, which in turn adds random stones and woods to the item pool.
-- kampon_weapon_minigame: Can be a number between 0 and 10. Adds checks to the Pan Pakapon minigame, which in turn adds random stones and woods to the item pool.
+- pakapon_minigame: Int, 0-10. Adds checks to the Pan Pakapon minigame. Also adds random stones and woods to the item pool.
+- zakapon_minigame: Int, 0-10. Adds checks to the Fah Zakapon minigame. Also adds random vegetables to the item pool.
+- gashapon_minigame: Int, 0-10. Adds checks to the Rah Gashapon minigame. Also adds random stews to the item pool.
+- kimpon_minigame: Int, 0-10. Adds checks to the Kon Kimpon minigame. Also adds random stones to the item pool.
+- kampon_minigame: Int, 0-10. Adds checks to the Ton Kampon minigame. Also adds random alloys to the item pool.
+- kampon_weapon_minigame: Int, 0-10. Adds checks to the weapon version of the Ton Kampon minigame. Also adds divine weapons to the item pool.
 - randomize_armor_stats: Armor gain new stats. Vanilla does nothing, Keep BST takes the total stat amount and randomizes them into new stats, Shuffle swaps all armor base stats, Completely Random makes all stats random.
 - randomize_weapon_stats: Weapons gain new stats. Vanilla does nothing, Keep BST takes the total stat amount and randomizes them into new stats, Shuffle swaps all weapon base stats, Completely Random makes all stats random.
 - randomize_rarepon_stats: Rarepons gain new stats. Vanilla does nothing, Keep BST takes the total stat amount and randomizes them into new stats, Shuffle swaps all rarepon base stats, Completely Random makes all stats random.
@@ -63,7 +64,8 @@ the Spoiler log. Click on Create New Room and that’s done! The Archipelago ser
 running!
 
 ### Setting up the mod
-Archipelago supports patching games through the launcher. use the Open Patch feature and select your patch file. 
+Archipelago supports patching games through the launcher. 
+Use the "Open Patch" feature on the left side of the archipelago launcher and select your patch file. 
 If this is your first time setting it up, you will need to select your copy of Patapon and your PPSSPP installation afterwards. 
 This will set up Open Patch to open your Patapon worlds in the future. PPSSPP should automatically open and your game
 roster will have a Patapon game with a special archipelago icon on the bottom left corner 
@@ -72,7 +74,7 @@ along with your player slot name and generation date in DD/MM/YY.
 ## Locations and items
 In multiworld games setups, locations are the places you need to go to unlock new things.
 In Patapon, there are locations customizable in your yaml.
-- Total Kaching gathered, in steps.
+- Total Kaching gathered in steps.
 - Altar introduction cutscene.
 - Mater introduction cutscene.
 - Doing missions for the first time.
