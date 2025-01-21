@@ -1,3 +1,4 @@
+This page is incomplete. The following readme is a mockup for a Patapon Randomizer setup.
 ## Setup
 Download the following two files from the [Releases page in Github](putlinkhere):
 - patapon.yaml
